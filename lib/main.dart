@@ -4,5 +4,6 @@ import 'package:hail/hail.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(ProviderScope(child: Hail()));
 }
