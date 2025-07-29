@@ -9,11 +9,8 @@ environment:
 
 dependencies:
   auto_route: ^10.1.0+1
-  cloud_firestore: ^5.6.12
   cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
-  firebase_auth: ^5.7.0
-  firebase_core: ^3.15.2
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.2.1
