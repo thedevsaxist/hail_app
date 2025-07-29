@@ -14,6 +14,25 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/phone-cut-out-2.png
+  AssetGenImage get phoneCutOut2 =>
+      const AssetGenImage('assets/images/phone-cut-out-2.png');
+
+  /// File path: assets/images/phone-cut-out-3.png
+  AssetGenImage get phoneCutOut3 =>
+      const AssetGenImage('assets/images/phone-cut-out-3.png');
+
+  /// File path: assets/images/phone_cutout.png
+  AssetGenImage get phoneCutout =>
+      const AssetGenImage('assets/images/phone_cutout.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [phoneCutOut2, phoneCutOut3, phoneCutout];
+}
+
 class $AssetsLauncherIconsGen {
   const $AssetsLauncherIconsGen();
 
@@ -46,6 +65,7 @@ class $AssetsLogosGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLauncherIconsGen launcherIcons =
       $AssetsLauncherIconsGen();
   static const $AssetsLogosGen logos = $AssetsLogosGen();
