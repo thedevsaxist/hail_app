@@ -1,0 +1,85 @@
+name: hail
+description: "A ride hailling app"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+ 
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+  retrofit: ^4.6.0
+  flutter_riverpod: ^2.6.1
+  dio: ^5.8.0+1
+  auto_route: ^10.1.0+1
+  json_annotation: ^4.9.0
+  freezed_annotation: ^3.1.0
+  icons_plus: ^5.0.0
+  flutter_dotenv: ^5.2.1
+  flutter_native_splash: ^2.4.6
+  flutter_svg: ^2.2.0
+  flutter_intl_phone_field: ^0.0.7
+  firebase_auth: ^5.7.0
+  cloud_firestore: ^5.6.12
+  firebase_core: ^3.15.2
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.4
+  flutter_gen_runner: ^5.11.0
+  auto_route_generator: ^10.1.0
+  build_runner: ^2.5.4
+  retrofit_generator: ^9.7.0
+  json_serializable: ^6.9.5
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/logos/
+    - assets/icons/
+    - assets/images/
+    - assets/launcher_icons/
+
+flutter_gen:
+  output: lib/app/core/theme/gen/
+
+  integrations:
+    image: true
+    flutter_svg: true
+
+  colors:
+    inputs:
+      - assets/colors/colors.xml
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/launcher_icons/hail_app_icon@1x.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  remove_alpha_ios: true
+
+
+flutter_native_splash:
+  color: "#129A4F"
+  image: assets/launcher_icons/hail_app_icon@1x.png
+  # branding: assets/branding-development.png
+  color_dark: "#121212"
+  image_dark: assets/launcher_icons/hail_app_icon@1x.png
+  # branding_dark: assets/branding-development.png
+
+  android_12:
+    image: assets/launcher_icons/hail_app_icon@1x.png
+    icon_background_color: "#129A4F"
+    image_dark: assets/launcher_icons/hail_app_icon@1x.png
+    # icon_background_color_dark: "#121212"
+
+  web: false
