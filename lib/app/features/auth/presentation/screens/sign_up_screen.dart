@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hail/app/core/shared/button.dart';
 import 'package:hail/app/core/shared/input_field.dart';
+import 'package:hail/app/core/shared/login_and_signup_toggle.dart';
 import 'package:hail/app/core/shared/phone_number_input_field.dart';
 import 'package:hail/app/core/theme/gen/colors.gen.dart';
 import 'package:hail/app/core/theme/layout/padding.dart';
@@ -24,7 +25,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
-        appBar: AppBar(actions: [_LoginTextButton()]),
+        appBar: AppBar(actions: [LoginAndSignupToggle(otherScreen: "Login")]),
         body: SafeArea(
           child: Center(
             child: Padding(
@@ -110,32 +111,6 @@ class _GenderDropDownState extends State<_GenderDropDown> {
         ),
         Spacing.vMedium,
       ],
-    );
-  }
-}
-
-class _LoginTextButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => context.router.replacePath('/login'),
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          Text(
-            "Login",
-            style: TextTheme.of(
-              context,
-            ).bodyLarge?.copyWith(color: ColorName.primary, decoration: TextDecoration.none),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: -1, // Increased space between text and underline
-            child: Container(height: 2, color: ColorName.primary),
-          ),
-        ],
-      ),
     );
   }
 }
