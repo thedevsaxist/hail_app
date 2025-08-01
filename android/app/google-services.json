@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "635297236391",
+    "project_id": "hail-4618c",
+    "storage_bucket": "hail-4618c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635297236391:android:1ba560dfd226d0ef536282",
+        "android_client_info": {
+          "package_name": "com.thedevwriter.hail"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8q6Bky6XY8s9J1KKpb3I9eeQGfxwZy24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

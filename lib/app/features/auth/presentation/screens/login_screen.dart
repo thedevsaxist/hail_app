@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hail/app/core/shared/login_and_signup_toggle.dart';
 import 'package:hail/app/core/theme/gen/assets.gen.dart';
 import 'package:hail/app/core/theme/gen/colors.gen.dart';
 import 'package:hail/app/core/theme/layout/padding.dart';
