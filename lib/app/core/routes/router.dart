@@ -10,7 +10,7 @@ final routerProvider = Provider<AppRouter>((ref) {
 class AppRouter extends RootStackRouter {
   @override
   RouteType get defaultRouteType {
-    return RouteType.custom(transitionsBuilder: TransitionsBuilders.slideRight);
+    return RouteType.custom(transitionsBuilder: TransitionsBuilders.slideLeft);
   }
 
   @override
@@ -24,5 +24,6 @@ class AppRouter extends RootStackRouter {
 
       // children: [AutoRoute(page: CountrySelectionRoute.page, path: 'country-selection/:country')],
     ),
+    AutoRoute(page: HomeRoute.page, path: "/home"),
   ];
 }

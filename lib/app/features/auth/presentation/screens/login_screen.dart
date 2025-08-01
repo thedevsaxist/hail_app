@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hail/app/core/routes/router.gr.dart';
 import 'package:hail/app/core/theme/gen/assets.gen.dart';
 import 'package:hail/app/core/theme/gen/colors.gen.dart';
 import 'package:hail/app/core/theme/layout/padding.dart';
 import 'package:hail/app/core/theme/layout/rounded_border.dart';
 import 'package:hail/app/core/theme/layout/spacing.dart';
+import 'package:hail/app/features/auth/presentation/state/login_screen_provider.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 @RoutePage()
@@ -20,6 +22,8 @@ class LoginScreen extends ConsumerStatefulWidget {
 class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    final viewmodel = ref.watch<ILoginScreenProvider>(loginScreenProvider);
+
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
@@ -37,19 +41,41 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       Assets.logos.hailAppLogo3x.image(scale: 4),
                       Spacing.vMedium,
                       Text(
-                        "Let's get you signed up",
+                        "Let's get started",
                         style: TextTheme.of(
                           context,
                         ).headlineMedium?.copyWith(fontWeight: FontWeight.w600),
                       ),
-                
-                      SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
-                
-                      _SocialAuthButton(brand: Brands.google, socialLabel: "Google"),
-                
+
                       Spacing.vSmall,
-                
-                      _SocialAuthButton(brand: Brands.apple_logo, socialLabel: "Apple"),
+
+                      Text(
+                        "This is your first step to enjoying comfortable and affordable rides with Hail.",
+                        textAlign: TextAlign.center,
+                        style: TextTheme.of(context).labelMedium?.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: ColorName.grayDarkmode,
+                        ),
+                      ),
+
+                      SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
+
+                      _SocialAuthButton(
+                        brand: Brands.google,
+                        socialLabel: "Google",
+                        onPressed: () {
+                          viewmodel.googleLogin();
+                          context.replaceRoute(HomeRoute());
+                        },
+                      ),
+
+                      Spacing.vSmall,
+
+                      _SocialAuthButton(
+                        brand: Brands.apple_logo,
+                        socialLabel: "Apple",
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 ),
@@ -96,7 +122,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 class _SocialAuthButton extends StatelessWidget {
   final String socialLabel;
   final String brand;
-  const _SocialAuthButton({required this.socialLabel, required this.brand});
+  final void Function() onPressed;
+  const _SocialAuthButton({
+    required this.socialLabel,
+    required this.brand,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +135,7 @@ class _SocialAuthButton extends StatelessWidget {
       width: double.infinity, // Makes the button fill horizontal space
       height: 55,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           // backgroundColor: ColorName.primary,
           shape: RoundedRectangleBorder(borderRadius: RoundedBorder.b12),
